@@ -9,17 +9,17 @@ body{
 }
 .container{
     display: flex;
-    width:240px;
+    width: 400px;
     border: 6px solid  rgb(102, 102, 102);
-    height: 260px;
+    height: 390px;
     flex-wrap: wrap;
     background-color: rgb(102, 102, 102);
 
 }
 
 button{
-    height:50px;
-    width:60px;
+    height:75px;
+    width:100px;
     border-radius: 4px;
 
 }
@@ -29,10 +29,12 @@ button{
 }
 
 .display{
-    width:240px;
-    height:50px;
+    width:400px;
+    height:75px;
     background-color: rgba(20, 191, 20, 0.763);
     border: 6px solid  rgb(102, 102, 102) ;
+    font-size: 64px;
+    text-align: right;
 }
 
 .number{
@@ -48,6 +50,6 @@ button{
 }
 
 .calculator{
-    max-height: 400px;
+    max-height: 800px;
     border: solid pink;
 }
