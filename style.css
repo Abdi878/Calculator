@@ -1,19 +1,22 @@
-body{
-    height: 100vh;
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 .container{
     display: flex;
     width: 400px;
-    border: 6px solid  rgb(102, 102, 102);
     height: 390px;
     flex-wrap: wrap;
-    background-color: rgb(102, 102, 102);
+    background-color: black
 
 }
 
@@ -21,6 +24,8 @@ button{
     height:75px;
     width:100px;
     border-radius: 4px;
+    font-size: 24px;
+    font-weight: bold;
 
 }
 
@@ -29,12 +34,11 @@ button{
 }
 
 .display{
-    width:400px;
-    height:75px;
-    background-color: rgba(20, 191, 20, 0.763);
-    border: 6px solid  rgb(102, 102, 102) ;
+    height:100px;
+    background-color: #b2b9b7;
     font-size: 64px;
     text-align: right;
+    border: black 6px solid;
 }
 
 .number{
@@ -51,5 +55,6 @@ button{
 
 .calculator{
     max-height: 800px;
-    border: solid pink;
+    border:10px solid rgba(47,47,47,1);
+    background-color: black;
 }
