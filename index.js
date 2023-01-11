@@ -3,18 +3,19 @@ const add = (num1,num2) => num1+num2;
 const multiply = (num1,num2) => num1*num2;
 const subtract = (num1,num2) => num1-num2;
 const divide = (num1,num2) => num1/num2;
+const power = (num1,num2) =>{
+    let sum = 1;
+    for(let i =0;i<num2;i++){
+        sum*=num1
+    }
+    return sum
+}
 const operate = (operator,num1,num2)=>operator(num1,num2);
 
 let a = null
 let b = null
 let operand = null
 let result = null
-
-//REFERENCES TO OPERATOR BUTTONS
-const addButton = document.getElementById("add")
-const multiplyButton = document.getElementById("mult")
-const subtractButton = document.getElementById("subtract")
-const divideButton = document.getElementById("divide")
 
 //ADDS TO DISPLAY WHEN A NUMBER IS PRESSED
 const display = document.querySelector(".display")
@@ -45,6 +46,9 @@ operators.forEach(function(operator){
     }
     else if(operator.id=="subtract"){
         operand = subtract
+    }
+    else if(operator.id=="power"){
+        operand = power
     }
 
     }
