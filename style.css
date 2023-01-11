@@ -9,7 +9,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:rgb(164, 246, 255);
 }
 .container{
     display: flex;
@@ -39,6 +40,7 @@ button{
     font-size: 64px;
     text-align: right;
     border: black 6px solid;
+    overflow: hidden;
 }
 
 .number{
@@ -57,4 +59,5 @@ button{
     max-height: 800px;
     border:10px solid rgba(47,47,47,1);
     background-color: black;
+    max-width: 422px;
 }
