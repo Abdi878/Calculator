@@ -3,6 +3,7 @@ const add = (num1,num2) => num1+num2;
 const multiply = (num1,num2) => num1*num2;
 const subtract = (num1,num2) => num1-num2;
 const divide = (num1,num2) => num1/num2;
+const negative =(num) =>-1*num;
 const power = (num1,num2) =>{
     let sum = 1;
     for(let i =0;i<num2;i++){
@@ -74,6 +75,15 @@ operators.forEach(function(operator){
     
     })
 })
+
+const negativeButton = document.querySelector("#sign")
+negativeButton.addEventListener('click',e=>{
+    if(display.innerHTML[0]=="-"){
+        display.innerHTML=display.innerHTML.substring(1)
+    }
+    else{
+    display.innerHTML="-"+display.innerHTML}
+    });
 //CLEARS THE DISPLAY
 const clear = document.querySelector("#clear")
 clear.addEventListener("click",e=>{
