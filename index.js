@@ -12,27 +12,32 @@ const power = (num1,num2) =>{
     return sum
 }
 const operate = (operator,num1,num2)=>operator(num1,num2);
-
+//INITIALISING VALUES
 let a = null
 let b = null
 let operand = null
 let result = null
+let digit = 0
 
 //ADDS TO DISPLAY WHEN A NUMBER IS PRESSED
 const display = document.querySelector(".display")
 const numbers = document.querySelectorAll(".number")
 numbers.forEach(function(num){
     num.addEventListener('click',e=>{
-        let digit = parseInt(num.innerHTML)
+        if(display.innerHTML==result){
+            display.innerHTML=""
+        }
+        digit = parseInt(num.innerHTML)
         display.innerHTML+=digit
         })})
 
 
 
-//STORES THE VALUE ON DISPLAY WHEN AN OPERATOR IS PRESSED
+//STORES THE VALUE ON DISPLAY AFTER AN OPERATOR IS PRESSED
 const operators = document.querySelectorAll(".operator")
 operators.forEach(function(operator){
     operator.addEventListener("click",e=>{
+    //STORING FIRST NUMBER AND OPERATOR
     if(operand ==null ){
     a = parseFloat(display.innerHTML)
     display.innerHTML=""
@@ -53,6 +58,7 @@ operators.forEach(function(operator){
     }
 
     }
+    //STORING SECOND NUMBER AND COMPUTING ANSWER
     else{
         b = parseFloat(display.innerHTML)
         display.innerHTML=""
@@ -75,7 +81,7 @@ operators.forEach(function(operator){
     
     })
 })
-
+//FLIPS THE SIGN OF THE CURRENT VALUE ON THE DISPLAY
 const negativeButton = document.querySelector("#sign")
 negativeButton.addEventListener('click',e=>{
     if(display.innerHTML[0]=="-"){
