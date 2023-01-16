@@ -1,103 +1,92 @@
 //FUNCTIONS FOR OPERATIONS
-const add = (num1,num2) => num1+num2;
-const multiply = (num1,num2) => num1*num2;
-const subtract = (num1,num2) => num1-num2;
-const divide = (num1,num2) => num1/num2;
-const negative =(num) =>-1*num;
-const power = (num1,num2) =>{
-    let sum = 1;
-    for(let i =0;i<num2;i++){
-        sum*=num1
-    }
-    return sum
-}
-const operate = (operator,num1,num2)=>operator(num1,num2);
+const add = (num1, num2) => num1 + num2;
+const multiply = (num1, num2) => num1 * num2;
+const subtract = (num1, num2) => num1 - num2;
+const divide = (num1, num2) => num1 / num2;
+const negative = (num) => -1 * num;
+const power = (num1, num2) => {
+  let sum = 1;
+  for (let i = 0; i < num2; i++) {
+    sum *= num1;
+  }
+  return sum;
+};
+const operate = (operator, num1, num2) => operator(num1, num2);
 //INITIALISING VALUES
-let a = null
-let b = null
-let operand = null
-let result = null
-let digit = 0
+let a = null;
+let b = null;
+let operand = null;
+let result = null;
+let digit = 0;
 
 //ADDS TO DISPLAY WHEN A NUMBER IS PRESSED
-const display = document.querySelector(".display")
-const numbers = document.querySelectorAll(".number")
-numbers.forEach(function(num){
-    num.addEventListener('click',e=>{
-        if(display.innerHTML==result){
-            display.innerHTML=""
-        }
-        digit = parseInt(num.innerHTML)
-        display.innerHTML+=digit
-        })})
-
-
+const display = document.querySelector(".display");
+const numbers = document.querySelectorAll(".number");
+numbers.forEach(function (num) {
+  num.addEventListener("click", (e) => {
+    if (display.innerHTML == result) {
+      display.innerHTML = "";
+    }
+    digit = parseInt(num.innerHTML);
+    display.innerHTML += digit;
+  });
+});
 
 //STORES THE VALUE ON DISPLAY AFTER AN OPERATOR IS PRESSED
-const operators = document.querySelectorAll(".operator")
-operators.forEach(function(operator){
-    operator.addEventListener("click",e=>{
+const operators = document.querySelectorAll(".operator");
+operators.forEach(function (operator) {
+  operator.addEventListener("click", (e) => {
     //STORING FIRST NUMBER AND OPERATOR
-    if(operand ==null ){
-    a = parseFloat(display.innerHTML)
-    display.innerHTML=""
-    if(operator.id=="mult"){
-        operand = multiply
-    }
-    else if(operator.id=="add"){
-        operand = add
-    }
-    else if(operator.id=="divide"){
-        operand = divide
-    }
-    else if(operator.id=="subtract"){
-        operand = subtract
-    }
-    else if(operator.id=="power"){
-        operand = power
-    }
-
+    if (operand == null) {
+      a = parseFloat(display.innerHTML);
+      display.innerHTML = "";
+      if (operator.id == "mult") {
+        operand = multiply;
+      } else if (operator.id == "add") {
+        operand = add;
+      } else if (operator.id == "divide") {
+        operand = divide;
+      } else if (operator.id == "subtract") {
+        operand = subtract;
+      } else if (operator.id == "power") {
+        operand = power;
+      }
     }
     //STORING SECOND NUMBER AND COMPUTING ANSWER
-    else{
-        b = parseFloat(display.innerHTML)
-        display.innerHTML=""
-        if(operator.id == "equals"){
-            if(a!=null && b!=null){
-                result = +(operate(operand,a,b)).toFixed(8)
-                if(result==Infinity) result="lol no";
-                display.innerHTML=result
-                console.log(a)
-                console.log(b)
-                console.log(result)
-                
-                operand = null
-                a = null
-                b = null
-            }
+    else {
+      b = parseFloat(display.innerHTML);
+      display.innerHTML = "";
+      if (operator.id == "equals") {
+        if (a != null && b != null) {
+          result = +operate(operand, a, b).toFixed(8);
+          if (result == Infinity) result = "lol no";
+          display.innerHTML = result;
+          console.log(a);
+          console.log(b);
+          console.log(result);
+
+          operand = null;
+          a = null;
+          b = null;
         }
+      }
     }
-        
-    
-    })
-})
+  });
+});
 //FLIPS THE SIGN OF THE CURRENT VALUE ON THE DISPLAY
-const negativeButton = document.querySelector("#sign")
-negativeButton.addEventListener('click',e=>{
-    if(display.innerHTML[0]=="-"){
-        display.innerHTML=display.innerHTML.substring(1)
-    }
-    else{
-    display.innerHTML="-"+display.innerHTML}
-    });
+const negativeButton = document.querySelector("#sign");
+negativeButton.addEventListener("click", (e) => {
+  if (display.innerHTML[0] == "-") {
+    display.innerHTML = display.innerHTML.substring(1);
+  } else {
+    display.innerHTML = "-" + display.innerHTML;
+  }
+});
 //CLEARS THE DISPLAY
-const clear = document.querySelector("#clear")
-clear.addEventListener("click",e=>{
-    a = null
-    b = null
-    operand = null
-    display.innerHTML=""})
-
-
-
-
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", (e) => {
+  a = null;
+  b = null;
+  operand = null;
+  display.innerHTML = "";
+});
